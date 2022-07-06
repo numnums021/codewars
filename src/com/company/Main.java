@@ -1,14 +1,16 @@
 package com.company;
 
+
+import com.company.kyu.Kyu5;
+
+
 public class Main
 {
-    int id;
-    String name;
-    double balance;
+    public static void main(String[] args) {
 
-    public static void main(String[] args)
-    {
-        System.out.println("и дико мне, иди ко мне");
-
+        System.out.println(new Kyu5().validParentheses("()"));
     }
+
 }
+
+
