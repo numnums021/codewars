@@ -2,6 +2,7 @@ package com.company.kyu;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.Stream;
 
 public class Kyu7 {
 
@@ -62,5 +63,16 @@ public class Kyu7 {
     public static String getMiddle(String word) {
         return (word.length() % 2 != 0) ? "" + word.charAt(word.length()/2):
                 "" + word.charAt(word.length()/2 - 1) + word.charAt(word.length()/2);
+    }
+
+    /*
+    * You will be given an array and a limit value. You must check that all values in the
+    * array are below or equal to the limit value.
+    * If they are, return true. Else, return false.
+
+    You can assume all values in the array are numbers.
+    * */
+    public static boolean smallEnough(int[] a, int limit) {
+        return Arrays.stream(a).noneMatch(el -> el > limit);
     }
 }
