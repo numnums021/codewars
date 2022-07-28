@@ -1,6 +1,7 @@
 package com.company.kyu;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Kyu6 {
 
@@ -51,6 +52,39 @@ public class Kyu6 {
             case 3: return String.format("%s, %s and %s like this", names[0], names[1], names[2]);
             default: return String.format("%s, %s and %d others like this", names[0], names[1], names.length - 2);
         }
+    }
+
+    /*
+    You are given three integer inputs: length, minimum, and maximum.
+    Return a string that:
+    1) Starts at minimum
+    2) Ascends one at a time until reaching the maximum, then
+    3) Decends one at a time until reaching the minimum
+    4) repeat until the string is the appropriate length
+    */
+    public static String ascendDescend(int length, int minimum, int maximum) {
+        StringBuilder ans = new StringBuilder();
+
+        if (minimum > maximum) return "";
+        if (maximum == minimum) {
+            for (int i = 0; i < length; i++) {
+                ans.append(maximum);
+            }
+            return String.valueOf(ans);
+        }
+
+        int tmp = minimum;
+        boolean f = true;
+        while (ans.length() != length) {
+            if (tmp < 0)    ans.append("-").append(Math.abs(tmp));
+            else ans.append(tmp);
+            if (f) tmp++;
+            else tmp--;
+
+            if (tmp == maximum) f = false;
+            if (tmp == minimum) f = true;
+        }
+        return ans.toString();
     }
 
 }
