@@ -38,4 +38,34 @@ public class Kyu5 {
         }
         return new long[]{firstNum, secondNum, 0};
     }
+
+    /*
+    * Your objective is to complete a function createSpiral(N) that receives an integer N and
+    * returns an NxN two-dimensional array with numbers 1 through NxN represented as a clockwise spiral.
+
+      Return an empty array if N < 1 or N is not int / number
+    * */
+    public static int[][] createSpiral(int N) {
+        int[][] array = new int[N][N];
+        if (N < 1) return array;
+        int row = 0, col = 0;
+        int visits = N, dirChanges = 0;
+        int dx = 1, dy = 0;
+        for (int i = 0; i < N*N; i++) {
+            array[row][col] = i + 1;
+            if (--visits == 0) {
+                visits = N * (dirChanges % 2) +
+                        N * ((dirChanges + 1) % 2) -
+                        (dirChanges / 2 - 1) - 2;
+                int tmp = dx;
+                dx = -dy;
+                dy = tmp;
+                dirChanges++;
+            }
+            col += dx;
+            row += dy;
+        }
+
+        return array;
+    }
 }
