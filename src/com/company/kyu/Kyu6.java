@@ -1,7 +1,10 @@
 package com.company.kyu;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Kyu6 {
 
@@ -85,6 +88,28 @@ public class Kyu6 {
             if (tmp == minimum) f = true;
         }
         return ans.toString();
+    }
+
+    /*
+    * Place all people in alphabetical order where Mothers are followed by their children,
+    * i.e. "aAbaBb" => "AaaBbb".
+    * */
+    public static String findChildren(final String text) {
+        if (text.isEmpty()) return text;
+
+        return text;
+    }
+
+    public static int digitalRoot(int n) {
+        String numStr = Integer.toString(n);
+        while (numStr.length() != 1) {
+            int tmp = 0;
+            for (int i = 0; i < numStr.length(); i++) {
+                tmp += Integer.parseInt(String.valueOf(numStr.charAt(i)));
+            }
+            numStr = Integer.toString(tmp);
+        }
+        return Integer.parseInt(numStr);
     }
 
 }
