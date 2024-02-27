@@ -6,6 +6,35 @@ import java.util.stream.Stream;
 
 public class Kyu7 {
 
+    public static boolean isAnagram(String test, String original) {
+        if (test.length() != original.length()) return false;
+
+        char[] testArray = test.toUpperCase().toCharArray();
+        char[] originalArray = original.toUpperCase().toCharArray();
+
+        Arrays.sort(testArray);
+        Arrays.sort(originalArray);
+
+        return Arrays.equals(testArray, originalArray);
+    }
+
+    /*
+    * Complete the solution so that it returns
+    * the greatest sequence of five consecutive digits found within the number given
+    * */
+    public static int solve(final String digits) {
+        int maxFiveConsecutiveDigits = Integer.parseInt(digits.substring(0, 5));
+        System.out.println("In start max_value = " + maxFiveConsecutiveDigits + ", length = " + digits.length());
+        for (int i = 0; i < digits.length() - 4; i++) {
+            int currentDigits = Integer.parseInt(digits.substring(i, i + 5));
+            System.out.println("In loop # " + i + ". currentDigits = " +currentDigits);
+            if (maxFiveConsecutiveDigits < currentDigits)
+                maxFiveConsecutiveDigits = currentDigits;
+        }
+        return maxFiveConsecutiveDigits; // you code here
+    }
+
+
     public static boolean validatePin(String pin) {
         return pin.matches("[0-9]{4}|[0-9]{6}");
     }

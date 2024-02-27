@@ -5,6 +5,21 @@ import java.util.stream.Collectors;
 
 public class Kyu8 {
 
+    //
+//    Jack really likes his number five: the trick here is that you
+//    have to multiply each number by 5 raised to the number of
+//    digits of each numbers, so, for example:
+//
+    public static int multiply(int number) {
+        // 5
+        int ans = number;
+        int len = number > 0 ? String.valueOf(number).length() : String.valueOf(number).length() -1;
+        for (int i = 0; i < len; i++){
+            ans *= 5;
+        }
+
+        return ans;
+    }
     /*
       There are pillars near the road. The distance between the pillars is the same and the width of the pillars is the same.
       Your function accepts three arguments:
