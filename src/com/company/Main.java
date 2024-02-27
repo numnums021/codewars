@@ -4,7 +4,7 @@ import com.company.kyu.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Kyu7.isAnagram("FOEFET", "TOFFEE"));
+        System.out.println(Kyu6.isNarcissistic(153));
     }
 }
 

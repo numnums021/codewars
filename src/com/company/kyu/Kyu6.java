@@ -7,6 +7,19 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Kyu6 {
+    /*
+    * A Narcissistic Number (or Armstrong Number) is a positive number
+    * which is the sum of its own digits, each raised to the power of the
+    * number of digits in a given base.
+    * In this Kata, we will restrict ourselves to decimal (base 10).
+    */
+    public static boolean isNarcissistic(int number) {
+        int length = String.valueOf(number).length();
+        return number == Arrays.stream(String.valueOf(number).split(""))
+                .mapToInt(Integer::parseInt)
+                .mapToDouble(m -> Math.pow(m, length))
+                .sum();
+    }
 
     /*
     * Complete the solution so that the function
